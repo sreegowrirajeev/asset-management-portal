@@ -1,0 +1,55 @@
+services:
+
+  mysql-db:
+    image: mysql:8
+    container_name: mysql-db
+
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: assetdb
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - /home/docker-lab/mysql-data:/var/lib/mysql
+
+    networks:
+      - asset-network
+
+  backend:
+    image: asset-backend:v5
+    container_name: backend
+
+    restart: always
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      - mysql-db
+
+    networks:
+      - asset-network
+
+  frontend:
+    image: asset-frontend:v8
+    container_name: frontend
+
+    restart: always
+
+    ports:
+      - "8082:80"
+
+    depends_on:
+      - backend
+
+    networks:
+      - asset-network
+
+volumes:
+  mysql-data:
+
+networks:
+  asset-network:
+    driver: bridge

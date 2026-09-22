@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS assetdb;
+
+USE assetdb;
+
+CREATE TABLE assets
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    asset_name VARCHAR(100),
+    asset_type VARCHAR(100),
+    owner VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

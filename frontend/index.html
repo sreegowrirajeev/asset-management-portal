@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Management Portal</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">    <div class="container">
+
+        <h1>Asset Management Portal</h1>
+
+        <div class="form-section">
+
+            <input type="text"
+                   id="asset_name"
+                   placeholder="Enter Asset Name">
+
+            <select id="asset_type">
+                <option value="">Select Asset Type</option>
+                <option>Server</option>
+                <option>Laptop</option>
+                <option>Desktop</option>
+                <option>Firewall</option>
+                <option>Router</option>
+                <option>Switch</option>
+            </select>
+
+            <input type="text"
+                   id="owner"
+                   placeholder="Enter Owner Name">
+
+            <button onclick="saveAsset()">
+                Save Asset
+            </button>
+            <input type="number"
+                   id="asset_id"
+                   placeholder="Enter Asset ID">
+            <button onclick="deleteAsset()">
+                Delete Asset
+            </button>
+        </div>
+
+        <div class="table-section">
+
+            <h2>Registered Assets</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Asset Name</th>
+                        <th>Asset Type</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+
+                <tbody id="assetTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@ node {
             url: 'https://github.com/sreegowrirajeev/asset-management-portal.git'
     }
 
-    stage('Build Backend') {
+    stage('Build Backend1') {
         script {
             docker.build("asset-backend:v5", "./backend")
         }
